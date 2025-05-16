@@ -11,7 +11,7 @@ const addProduct = async (req, res) => {
         const images = [image1, image2, image3, image4].filter((item) => item !== undefined);
         const imagesURL = await Promise.all(
             images.map(async (item) => {
-                let result = await cloudinary.uploader.upload(item.path, {resource_type: "image"});
+                let result = await cloudinary.uploader.upload(item.path, {resource_type: "image", folder: "StellaProducts"});
                 return result.secure_url;
             })
         );

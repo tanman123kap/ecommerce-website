@@ -167,7 +167,7 @@ const userOrders = async (req, res) => {
         const orders = await orderModel.find({userId});
         res.json({success: true, orders});
     } catch (error) {
-        res.json({success: false, message: TokenExpiredError.message});
+        res.json({success: false, message: error.message});
     }
 }
 
