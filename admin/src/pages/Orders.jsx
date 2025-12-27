@@ -11,7 +11,11 @@ const Orders = ({token}) => {
       return null;
     } else {
       try {
-        const response = await axios.post(backendUrl + "/api/order/list", {}, {headers: {token}});
+        const response = await axios.post(backendUrl + "/api/order/list", {}, {
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+});
         if(response.data.success) {
           setOrders(response.data.orders.reverse());
         } else {
